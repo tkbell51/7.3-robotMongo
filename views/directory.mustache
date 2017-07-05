@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Robots Home</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="#Working">Working</a>
+      <a href="#Unemployed">Unemployed</a>
+    </nav>
+    <div class="content">
+      <div class='column-3'>
+        <ul class="boxContent">
+          {{#model}}
+          <li>
+            <a href=/directory/{{id}}>
+            <img src="{{avatar}}" alt="picture">
+            <p class='name'> {{name}} <p>
+              {{#job}}
+              <p class='job'> {{job}} {{company}} </p>
+              {{/job}}
+              {{^job}}
+              <p class='job employ' > Available for hire </p>
+              {{/job}}
+            </a>
+          </li>
+          {{/model}}
+        </ul>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Robot Profile</title>
+  </head>
+  <body class='profBody'>
+    <nav>
+      <a href="#Working">Working</a>
+      <a href="#Unemployed">Unemployed</a>
+    </nav>
+    {{#model}}
+    <table class="container">
+      <tr>
+        <td><img class='profPic' src="{{avatar}}" alt="Profile"></td>
+        {{#job}}
+        <td>
+          <h1 class='profName'>{{name}}</h1>
+          {{#address.city}}
+          <p class='profLoc'> {{address.city}}, {{address.country}} | <span>{{job}}</span>, {{company}} </p>
+          {{/address.city}}
+          {{^address.city}}
+          <p class='profLoc'>  {{address.country}} | <span>{{job}}</span>, {{company}} </p>
+          {{/address.city}}
+        <p class='emPhone'>{{email}} | {{phone}}</p>
+      </td>
+      {{/job}}
+      {{^job}}
+      <td>
+        <h1 class='profName'>{{name}}</h1>
+        <p class='profLoc' >{{address.city}}, {{address.country}} | <span class='job employ'> Available for hire</span> </p>
+        <p class='emPhone'>{{email}} | {{phone}}</p>
+      </td>
+      {{/job}}
+      </tr>
+      {{#university}}
+      <tr>
+        <td  class='tag'>Education</td>
+        <td class='univInfo'>{{university}}</td>
+      </tr>
+      {{/university}}
+      {{^university}}
+      <td class='none'></td>
+      {{/university}}
+      <tr>
+        <td class='tag'>Skills</td>
+        <td class='skillInfo'>
+          {{#skills}}
+          <p>{{.}}</p>
+          {{/skills}}
+        </td>
+      </tr>
+
+    </table>
+{{/model}}
+  </body>
+</html>
