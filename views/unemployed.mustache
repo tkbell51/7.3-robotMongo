@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Robot Unemployed</title>
-  </head>
-  <body>
-    <nav>
-      <a href="#Working">Working</a>
-      <a href="#Unemployed">Unemployed</a>
-    </nav>
+<head>
+  <meta charset="utf-8">
+  <title>Robot Unemployed</title>
+</head>
+<body>
+  <nav>
+    <a href="/directory">Home</a>
+    <a href="/directory/working">Working</a>
+    <a href="/directory/unemployed">Unemployed</a>
+  </nav>
+  {{#model}}
+  <div class="content">
+    <div class='column-3'>
+      <ul class="boxContent">
 
+        <li>
+          <a href=/directory/{{id}}>
+            <img src="{{avatar}}" alt="picture">
+            <p class='name'> {{name}} <p>
+
+
+              <h1 class='profName'>{{name}}</h1>
+              <p class='profLoc' >{{address.city}}, {{address.country}} </p>
+              <p class='emPhone'>{{email}} | {{phone}}</p>
+              {{#university}}
+              <div>
+                <div class='tag'>Education</div>
+                <div class='univInfo'>{{university}}</div>
+              </div>
+              {{/university}}
+              {{^university}}
+              <div class='none'></div>
+              {{/university}}
+              <div>
+                <div class='tag'>Skills</div>
+                <div class='skillInfo'>
+                  {{#skills}}
+                  <p>{{.}}</p>
+                  {{/skills}}
+                </div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    {{/model}}
   </body>
-</html>
+  </html>
