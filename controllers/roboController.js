@@ -28,22 +28,26 @@ module.exports = {
     });
 
   },
+
   unemployed: function(req, res){
     var context = {};
-    var col = req.db.collection('robots')
-    col.find({'job': null}).toArray((error, results)=>{
-      console.log("unemployeeeeeeeeed", results);
-      context.model = results
-      res.render('unemployed', context);
+
+    var col = req.db.collection('robots');
+
+    col.find({"job":null}).toArray((error, results)=>{
+      console.log(results);
+      context.model = results;
+      res.render('directory', context);
     })
 
   },
+
   working: function(req, res){
     var context = {};
     var col = req.db.collection('robots')
     col.find({'company': {$ne: null}}).toArray((error, results)=>{
       context.model = results
-      res.render('working', context);
+      res.render('directory', context);
     })
   }
 };

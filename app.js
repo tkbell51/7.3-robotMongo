@@ -11,8 +11,6 @@ app.set('view engine', 'mustache');
 app.set('views', './views');
 
 
-
-
 app.use(function(req, res, next){
   MongoClient.connect('mongodb://localhost:27017/timRobots_db', (errors, db)=>{
     req.db = db;
@@ -23,10 +21,8 @@ app.use(function(req, res, next){
 
 app.get('/directory', roboController.directory);
 app.get('/directory/:id', roboController.profile);
-app.get('/directory/unemployed', roboController.unemployed);
-app.get('/directory/working', roboController.working)
-// app.get('/directory/:id', roboController.profile);
-// app.get('/directory/working', roboController.working);
-// app.get('/directory/unemployed', roboController.unemployed);
+app.get('/unemployed/', roboController.unemployed);//----/directory/unemployed/ path would not work
+app.get('/working/', roboController.working);//--/directory/working/ path would not work
+
 
 app.listen(3000);

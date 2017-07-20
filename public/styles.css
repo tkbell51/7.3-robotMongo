@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+margin: 0px;
+padding: 0px;
+font-family: helvetica;
+}
+nav{
+  background: #000;
+height: 50px;
+}
+.content{
+background: #604646;
+}
+.employ{
+  color: red;
+}
+.boxContent{
+text-align: center;
+
+  justify-content: space-around;
+  list-style-type: none;
+  display: flex;
+  flex-flow:row wrap;
+}
+li{
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  border-radius: 5px;
+  margin: 10px 20px;
+  background: #FFF;
+  flex: 1 1 20%;
+  padding: 10px;
+}
+li a{
+  text-decoration: none;
+}
